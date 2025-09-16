@@ -342,7 +342,7 @@ const response = autoReplyTemplate
       "allowedOrigins": ["https://empresa.com"],
       "theme": {
         "primaryColor": "#007bff",
-        "botName": "Rosie"
+  "botName": "DiDi"
       },
       "features": {
         "fileUpload": true,
@@ -382,7 +382,7 @@ webChatService.on('message', async (message) => {
     const aiResponse = await aiService.generateResponse(
       message.conversationId,
       message.content,
-      'rosie-biz4gov'
+  'didi-biz4gov'
     );
     
     await webChatService.sendMessage(message.conversationId, {

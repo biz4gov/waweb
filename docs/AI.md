@@ -1,19 +1,19 @@
-# 🤖 Serviço de IA - Rosie e Integração com Gemini
+# 🤖 Serviço de IA - DiDi e Integração com Gemini
 
-Este documento detalha o serviço de Inteligência Artificial do WaWeb, incluindo a assistente virtual Rosie e a integração com Google Gemini Flash 2.5.
+Este documento detalha o serviço de Inteligência Artificial do WaWeb, incluindo a assistente virtual DiDi e a integração com Google Gemini Flash 2.5.
 
 ## 🧠 Visão Geral
 
 O serviço de IA do WaWeb oferece:
-- **Assistente Virtual Rosie**: Especializada em gestão de contratos administrativos
+- **Assistente Virtual DiDi**: Especializada em gestão de contratos administrativos
 - **Múltiplos Provedores**: Suporte a Gemini, OpenAI e provedores customizados
 - **Prompts Dinâmicos**: Sistema de prompts editáveis em Markdown
 - **Escalação Inteligente**: Transferência automática para atendentes humanos
 
-## 👩‍💼 Rosie - Assistente Executiva
+## 👩‍💼 DiDi - Assistente Executiva
 
 ### Identidade e Especialização
-Rosie é uma assistente virtual com as seguintes características:
+DiDi é uma assistente virtual com as seguintes características:
 
 **Perfil Profissional:**
 - Assistente Executiva Senior da Biz4Gov Serviços e Consultoria Ltda
@@ -30,11 +30,11 @@ Rosie é uma assistente virtual com as seguintes características:
 
 ### Configuração do Prompt
 
-O prompt da Rosie está em `/prompts/rosie-biz4gov.md` e inclui:
+O prompt da DiDi está em `/prompts/didi-biz4gov.md` e inclui:
 
 ```markdown
 ## IDENTIDADE E CONTEXTO PROFISSIONAL
-Você é **Rosie**, Assistente Executiva Senior da **Biz4Gov**...
+Você é **DiDi**, Assistente Executiva Senior da **Biz4Gov**...
 
 ## COMPETÊNCIAS TÉCNICAS E FERRAMENTAS
 ### Capacidades Operacionais
@@ -96,7 +96,7 @@ safetySettings: [
 ### Estrutura de Arquivos
 ```
 prompts/
-├── rosie-biz4gov.md          # Assistente especializada
+├── didi-biz4gov.md          # Assistente especializada
 ├── customer-service.md       # Atendimento geral
 └── temp/                     # Prompts temporários
 ```
@@ -134,7 +134,7 @@ Content-Type: application/json
 {
   "conversationId": "conv-123",
   "message": "Preciso de informações sobre empenho 2024NE000123",
-  "promptId": "rosie-biz4gov",
+  "promptId": "didi-biz4gov",
   "providerId": "gemini"
 }
 ```
@@ -144,7 +144,7 @@ Content-Type: application/json
 {
   "success": true,
   "data": {
-    "content": "Olá! Sou Rosie, Assistente Executiva da Biz4Gov. Sobre o empenho 2024NE000123, posso verificar o status atual...",
+  "content": "Olá! Sou DiDi, Assistente Executiva da Biz4Gov. Sobre o empenho 2024NE000123, posso verificar o status atual...",
     "model": "gemini-2.0-flash-exp",
     "provider": "gemini",
     "usage": {
@@ -186,7 +186,7 @@ Content-Type: application/json
 GET /ai/prompts
 
 # Recarregar prompt específico
-POST /ai/prompts/rosie-biz4gov/reload
+POST /ai/prompts/didi-biz4gov/reload
 
 # Recarregar todos os prompts
 POST /ai/prompts/reload-all
@@ -223,7 +223,7 @@ const escalationKeywords = [
 3. **Sinais especiais**: `call.received` para chamadas
 4. **Análise de sentimento**: Frustração alta detectada
 
-### Resposta da Rosie para Escalação
+### Resposta da DiDi para Escalação
 ```
 "Esta funcionalidade está em desenvolvimento. Posso atendê-lo via mensagem de texto ou áudio transcrito para oferecer o mesmo nível de qualidade."
 ```
@@ -301,8 +301,8 @@ curl -X POST http://localhost:3000/ai/chat \
   -H "Content-Type: application/json" \
   -d '{
     "conversationId": "test-conv",
-    "message": "Olá Rosie, me fale sobre contratos públicos",
-    "promptId": "rosie-biz4gov"
+  "message": "Olá DiDi, me fale sobre contratos públicos",
+  "promptId": "didi-biz4gov"
   }'
 ```
 
@@ -337,10 +337,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/models?key=$GEMINI_API_KE
 #### 2. Prompt não Carregado
 ```bash
 # Verifique se o arquivo existe
-ls -la prompts/rosie-biz4gov.md
+ls -la prompts/didi-biz4gov.md
 
 # Recarregue manualmente
-curl -X POST http://localhost:3000/ai/prompts/rosie-biz4gov/reload
+curl -X POST http://localhost:3000/ai/prompts/didi-biz4gov/reload
 ```
 
 #### 3. Timeout nas Respostas
@@ -370,7 +370,7 @@ fetch(url, {
 - **Integração SQL**: Consultas diretas ao banco via IA
 
 ### Em Desenvolvimento
-- **Rosie 2.0**: Versão com memória persistente
+- **DiDi 2.0**: Versão com memória persistente
 - **Plugin System**: Extensões personalizadas
 - **Voice Integration**: Suporte a áudio
 - **Analytics Dashboard**: Métricas avançadas
@@ -384,4 +384,4 @@ fetch(url, {
 
 ---
 
-**Rosie está pronta para transformar o atendimento da Biz4Gov! 🚀**
+**DiDi está pronta para transformar o atendimento da Biz4Gov! 🚀**

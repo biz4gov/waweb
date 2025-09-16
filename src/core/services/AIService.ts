@@ -27,13 +27,13 @@ class AIService extends EventEmitter {
     try {
       await fs.mkdir(this.promptsDirectory, { recursive: true });
       
-      // Create default Rosie prompt if it doesn't exist
-      const rosiePromptPath = path.join(this.promptsDirectory, 'rosie-biz4gov.md');
+  // Create default DiDi prompt if it doesn't exist
+  const didiPromptPath = path.join(this.promptsDirectory, 'didi-biz4gov.md');
       
       try {
-        await fs.access(rosiePromptPath);
+  await fs.access(didiPromptPath);
       } catch {
-        console.log('Rosie prompt already exists, skipping creation');
+  console.log('DiDi prompt already exists, skipping creation');
       }
 
       // Create default customer service prompt
@@ -165,7 +165,7 @@ Escale para um atendente humano nos seguintes casos:
   public async generateResponse(
     conversationId: string,
     userMessage: string,
-    promptId = 'rosie-biz4gov',
+  promptId = 'didi-biz4gov',
     providerId?: string
   ): Promise<AIResponse> {
     try {

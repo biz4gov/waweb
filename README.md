@@ -10,7 +10,7 @@ O **WaWeb** é uma **plataforma omnichannel de comunicação baseada em API** qu
 
 - 🔌 **API-First**: Microsserviço sem interface visual, totalmente baseado em APIs REST
 - 🌐 **Omnichannel**: Suporte nativo a WhatsApp, Telegram, E-mail e Chat Web
-- 🤖 **IA Integrada**: Assistente virtual Rosie com Gemini Flash 2.5
+- 🤖 **IA Integrada**: Assistente virtual DiDi com Gemini Flash 2.5
 - 📨 **Sistema de Webhooks**: Notificações em tempo real para aplicações externas
 - 🎯 **Gestão de Filas**: Distribuição inteligente de conversas para atendentes
 - 🔐 **Autenticação JWT**: Sistema de tokens para usuários de aplicações externas
@@ -41,7 +41,7 @@ O **WaWeb** é uma **plataforma omnichannel de comunicação baseada em API** qu
 - **[🛠️ APIs e Rotas](./API.md)** - Documentação completa das APIs
 
 ### 🔧 Documentação Técnica
-- **[🤖 Serviço de IA](./docs/AI.md)** - Rosie e integração com Gemini
+- **[🤖 Serviço de IA](./docs/AI.md)** - DiDi e integração com Gemini
 - **[📱 Canais de Comunicação](./docs/CHANNELS.md)** - WhatsApp, Telegram, E-mail
 - **[🔐 Autenticação](./docs/AUTH.md)** - Sistema JWT e permissões
 
@@ -93,9 +93,9 @@ curl -X POST "http://localhost:3000/omnichannel/users?accountId=sua-empresa" \
 | 📱 WhatsApp | ✅ Ativo | QR Code, Mensagens, Mídia, Grupos |
 | 🤖 Telegram | ✅ Ativo | Bots, Keyboards, Arquivos, Webhooks |
 | 📧 E-mail | ✅ Ativo | IMAP/SMTP, Anexos, HTML, Threading |
-| 💬 Chat Web | ✅ Ativo | IA Rosie, Escalação, Widget |
+| 💬 Chat Web | ✅ Ativo | IA DiDi, Escalação, Widget |
 
-### 🤖 **Assistente IA Rosie**
+### 🤖 **Assistente IA DiDi**
 - **Especialidade**: Gestão de contratos administrativos (Biz4Gov)
 - **Modelo**: Gemini Flash 2.5
 - **Escalação**: Transferência inteligente para atendentes humanos

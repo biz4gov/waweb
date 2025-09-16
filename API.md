@@ -415,7 +415,7 @@ Content-Type: application/json
 {
   "conversationId": "conv-123",
   "message": "Preciso de informações sobre contratos públicos",
-  "promptId": "rosie-biz4gov",
+  "promptId": "didi-biz4gov",
   "providerId": "gemini"
 }
 ```
@@ -425,7 +425,7 @@ Content-Type: application/json
 {
   "success": true,
   "data": {
-    "content": "Olá! Sou Rosie, Assistente Executiva da Biz4Gov. Posso ajudá-lo com informações sobre contratos administrativos...",
+  "content": "Olá! Sou DiDi, Assistente Executiva da Biz4Gov. Posso ajudá-lo com informações sobre contratos administrativos...",
     "model": "gemini-2.0-flash-exp",
     "provider": "gemini",
     "usage": {

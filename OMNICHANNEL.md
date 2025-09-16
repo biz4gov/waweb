@@ -176,18 +176,18 @@ PUT /omnichannel/agents/agent-001/status
 
 ## IA e Automação
 
-### Chat com Rosie (Gemini Flash 2.5)
+### Chat com DiDi (Gemini Flash 2.5)
 ```javascript
 POST /ai/chat
 {
   "conversationId": "conv-456",
   "message": "Preciso de informações sobre contratos",
-  "promptId": "rosie-biz4gov"
+  "promptId": "didi-biz4gov"
 }
 
 // Resposta
 {
-  "content": "Olá! Sou Rosie, Assistente Executiva da Biz4Gov...",
+  "content": "Olá! Sou DiDi, Assistente Executiva da Biz4Gov...",
   "model": "gemini-2.0-flash-exp",
   "provider": "gemini"
 }
