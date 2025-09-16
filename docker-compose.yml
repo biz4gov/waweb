@@ -1,0 +1,57 @@
+# Versão 3
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: usaas-waweb-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/whatsapp
+      - PORT=3000
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      db:
+        condition: service_healthy # Espera o banco estar pronto
+      redis:
+        condition: service_started # Espera o Redis estar iniciado
+
+  db:
+    image: postgres:14-alpine
+    container_name: usaas-waweb-db
+    healthcheck: # Adicionamos um healthcheck para o 'depends_on' funcionar
+      test: ["CMD-SHELL", "pg_isready -U user -d whatsapp"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: whatsapp
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db-init:/docker-entrypoint-initdb.d # Mapeia nosso script para a pasta de inicialização
+
+  redis: # NOVO SERVIÇO
+    image: redis:7-alpine
+    container_name: usaas-waweb-redis
+    command: redis-server --save 60 1 --loglevel warning
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  redis_data: # NOVO VOLUME
